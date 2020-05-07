@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Profile({"dog", "default"})
 @Service("dog")
 @Primary
-public class DogPetService implements PetService{
+public class DogPetService implements PetService {
 
     @Override
     public String getPetType(){
