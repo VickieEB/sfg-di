@@ -1,0 +1,14 @@
+di:
+  jms:
+    username: JMS Username
+    password: JMS Password
+    url: JMS URL
+
+---
+
+spring:
+  profiles: EN
+
+di:
+  jms:
+    username: JMS Username ENGLISH

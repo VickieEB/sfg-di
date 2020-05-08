@@ -1,14 +1,19 @@
 package guru.springframework.sfgdi;
 
 import guru.springframework.sfgdi.examplebeans.DummyDatasource;
+import guru.springframework.sfgdi.examplebeans.DummyJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 @SpringBootApplication
 //@ComponentScan(basePackages = {"guru.springframework.sfgdi.services","guru.springframework"})
-@PropertySource("classpath:datasource.properties")
+@PropertySources({
+		@PropertySource("classpath:datasource.properties"),
+		//@PropertySource("classpath:jms.properties")
+})
 public class SfgDiApplication {
 
 	public static void main(String[] args) {
@@ -25,6 +30,9 @@ public class SfgDiApplication {
 
 		DummyDatasource dummyDatasource = (DummyDatasource) ctx.getBean(DummyDatasource.class);
 		System.out.println(dummyDatasource.getUsername() + " \n" + dummyDatasource.getDburl());
+
+		DummyJmsBroker dummyJmsBroker = (DummyJmsBroker) ctx.getBean(DummyJmsBroker.class);
+		System.out.println(dummyJmsBroker.getUsername() + " \n" + dummyJmsBroker.getUrl());
 
 	}
 
